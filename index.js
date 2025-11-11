@@ -2,10 +2,12 @@
 require('dotenv').config(); // Para poder leer el archivo .env
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors'); // <--- AÑADE ESTA LÍNEA
 
 // 2. Crear la App de Express
 const app = express();
 app.use(express.json()); // ¡Importante! Para que Express entienda JSONs
+app.use(cors());
 
 // 3. Conectarse a la "Bodega" (Mongo Atlas)
 const mongoUri = process.env.MONGO_URI; // Sacamos la llave del .env
